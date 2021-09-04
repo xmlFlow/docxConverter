@@ -10,17 +10,21 @@
  * @brief extends the creator class for JATS XML
  */
 
-require_once __DIR__ . "/../docxToJats/vendor/autoload.php";
-use docx2jats\jats\Document;
-use docx2jats\DOCXArchive;
+require_once __DIR__ . "/../docxToTEI/vendor/autoload.php";
+use docx2tei\tei\TEIDocument;
+use docx2tei\DOCXArchive;
 
-class DOCXConverterDocument extends Document {
+class DOCXConverterDocument extends TEIDocument {
 
-	protected $xpath;
+	public $xpath;
 
 	public function __construct(DOCXArchive $docxArchive)
 	{
-		parent::__construct($docxArchive);
+
+		$data = file_get_contents('../config.json');
+		$config = json_decode($data);
+		$structuredXML = new docx2tei\structure\Document($docxArchive);
+		parent::__construct($structuredXML,$config);
 		$this->xpath = new DOMXPath($this);
 
 		$this->removeTableParagraphs();

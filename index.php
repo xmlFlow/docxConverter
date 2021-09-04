@@ -10,6 +10,6 @@
  * @brief wrapper for driver plugin
  */
 
-require_once('DocxToJatsPlugin.inc.php');
+require_once('docxToTEIPlugin.inc.php');
 
-return new DocxToJatsPlugin();
+return new docxToTEIPlugin();

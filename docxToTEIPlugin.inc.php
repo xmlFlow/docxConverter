@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/generic/docxConverter/DocxToJatsPlugin.inc.php
+ * @file plugins/generic/docxConverter/docxToTEIPlugin.inc.php
  *
  * Copyright (c) 2014-2019 Simon Fraser University Library
  * Copyright (c) 2003-2019 John Willinsky
@@ -12,19 +12,19 @@
 
 import('lib.pkp.classes.plugins.GenericPlugin');
 
-class DocxToJatsPlugin extends GenericPlugin {
+class docxToTEIPlugin extends GenericPlugin {
 	/**
 	 * @copydoc Plugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return __('plugins.generic.docxToJats.displayName');
+		return __('plugins.generic.docxToTEI.displayName');
 	}
 
 	/**
 	 * @copydoc Plugin::getDescription()
 	 */
 	function getDescription() {
-		return __('plugins.generic.docxToJats.description');
+		return __('plugins.generic.docxToTEI.description');
 	}
 
 
@@ -106,9 +106,9 @@ class DocxToJatsPlugin extends GenericPlugin {
 				}
 
 				if (strtolower($fileExtension) == 'docx' && // show only for files with docx extension
-					$accessAllowed && // only for those that have access according to the DOCXConverterHandler rules
-					in_array($stageId, $this->getAllowedWorkflowStages()) && // only for stage ids copyediting or higher
-					in_array($submissionStageId, $this->getAllowedWorkflowStages()) // only if submission has correspondent stage id
+					$accessAllowed //&& // only for those that have access according to the DOCXConverterHandler rules
+					//in_array($stageId, $this->getAllowedWorkflowStages()) && // only for stage ids copyediting or higher
+					//in_array($submissionStageId, $this->getAllowedWorkflowStages()) // only if submission has correspondent stage id
 					) {
 
 					$path = $dispatcher->url($request, ROUTE_PAGE, null, 'docxParser', 'parse', null,
@@ -128,7 +128,7 @@ class DocxToJatsPlugin extends GenericPlugin {
 					$linkAction = new LinkAction(
 						'parse',
 						new PostAndRedirectAction($path, $pathRedirect),
-						__('plugins.generic.docxToJats.button.parseDocx')
+						__('plugins.generic.docxToTEI.button.parseDocx')
 					);
 					$row->addAction($linkAction);
 				}

@@ -12,8 +12,9 @@
 
 import('classes.handler.Handler');
 import('plugins.generic.docxConverter.classes.DOCXConverterDocument');
-require_once __DIR__ . "/docxToJats/vendor/autoload.php";
-use docx2jats\DOCXArchive;
+
+require_once __DIR__ . "/docxToTEI/vendor/autoload.php";
+use docx2tei\DOCXArchive;
 
 class ConverterHandler extends Handler {
 	/**
@@ -49,7 +50,7 @@ class ConverterHandler extends Handler {
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionId = $submissionFile->getSubmissionId();
 		$submission = $submissionDao->getById($submissionId);
-		$jatsXML->setDocumentMeta($request, $submission);
+		//$jatsXML->setDocumentMeta($request, $submission);
 		$tmpfname = tempnam(sys_get_temp_dir(), 'docxConverter');
 		file_put_contents($tmpfname, $jatsXML->saveXML());
 		$genreId = $submissionFile->getGenreId();
