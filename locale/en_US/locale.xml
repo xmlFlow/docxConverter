@@ -13,8 +13,8 @@
 -->
 
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.generic.docxToTEI.displayName">DOCX to JATS XML Converter Plugin</message>
-	<message key="plugins.generic.docxToTEI.description">Is developed to transform scientific articles from DOCX (OOXML) to JATS XML format.</message>
-	<message key="plugins.generic.docxToTEI.button.parseDocx">Convert to JATS XML</message>
-	<message key="grid.action.parse">Convert this file to JATS XML</message>
+	<message key="plugins.generic.docxToTEI.displayName">DOCX to TEI XML Converter Plugin</message>
+	<message key="plugins.generic.docxToTEI.description">Is developed to transform scientific articles from DOCX (OOXML) to TEI XML format.</message>
+	<message key="plugins.generic.docxToTEI.button.parseDocx">Convert to TEI XML</message>
+	<message key="grid.action.parse">Convert this file to TEI XML</message>
 </locale>

@@ -50,7 +50,7 @@ class ConverterHandler extends Handler {
 		$submissionDao = Application::getSubmissionDAO();
 		$submissionId = $submissionFile->getSubmissionId();
 		$submission = $submissionDao->getById($submissionId);
-		//$jatsXML->setDocumentMeta($request, $submission);
+		//TODO $jatsXML->setDocumentMeta($request, $submission);
 		$tmpfname = tempnam(sys_get_temp_dir(), 'docxConverter');
 		file_put_contents($tmpfname, $jatsXML->saveXML());
 		$genreId = $submissionFile->getGenreId();

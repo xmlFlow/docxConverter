@@ -125,6 +125,7 @@ class docxToTEIPlugin extends GenericPlugin {
 						));
 
 					import('lib.pkp.classes.linkAction.request.AjaxAction');
+					import('lib.pkp.classes.linkAction.request.PostAndRedirectAction');
 					$linkAction = new LinkAction(
 						'parse',
 						new PostAndRedirectAction($path, $pathRedirect),

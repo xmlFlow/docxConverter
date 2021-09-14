@@ -21,8 +21,8 @@ class DOCXConverterDocument extends TEIDocument {
 	public function __construct(DOCXArchive $docxArchive)
 	{
 
-		$data = file_get_contents('../config.json');
-		$config = json_decode($data);
+		$config = json_decode(file_get_contents('plugins/generic/docxConverter/config.json'));
+
 		$structuredXML = new docx2tei\structure\Document($docxArchive);
 		parent::__construct($structuredXML,$config);
 		$this->xpath = new DOMXPath($this);
